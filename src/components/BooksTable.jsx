@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import InfiniteScroll from 'react-infinite-scroll-component';
-import { generateBooks } from '../utils/dataGenerator';
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { generateBooks } from "../utils/dataGenerator";
 
 const BooksTable = ({ seed, language, likes, reviews }) => {
     const [books, setBooks] = useState([]);
     const [page, setPage] = useState(1);
 
-    // Efecto para regenerar datos al cambiar props
+    // Regenera libros cuando cambian los parámetros
     useEffect(() => {
         const initialBooks = generateBooks(seed, language, likes, reviews, 20);
         setBooks(initialBooks);
-        setPage(1); // Reiniciar la paginación
+        setPage(1); // Reinicia la paginación
     }, [seed, language, likes, reviews]);
 
-    // Cargar más datos para el infinite scroll
+    // Carga más libros en el infinite scroll
     const fetchMoreBooks = () => {
         const nextBatch = generateBooks(seed + page, language, likes, reviews, 10);
         setBooks((prevBooks) => [...prevBooks, ...nextBatch]);
@@ -36,6 +36,8 @@ const BooksTable = ({ seed, language, likes, reviews }) => {
                         <th className="border p-2">Title</th>
                         <th className="border p-2">Author</th>
                         <th className="border p-2">Publisher</th>
+                        <th className="border p-2">Likes</th>
+                        <th className="border p-2">Reviews</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,6 +48,8 @@ const BooksTable = ({ seed, language, likes, reviews }) => {
                             <td className="border p-2">{book.title}</td>
                             <td className="border p-2">{book.author}</td>
                             <td className="border p-2">{book.publisher}</td>
+                            <td className="border p-2 text-center">{book.likes}</td>
+                            <td className="border p-2 text-center">{book.reviews}</td>
                         </tr>
                     ))}
                 </tbody>

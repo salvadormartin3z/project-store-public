@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import Header from './components/Header';
-import BooksTable from './components/BooksTable';
+import React, { useState } from "react";
+import Header from "./components/Header";
+import BooksTable from "./components/BooksTable";
 
 const App = () => {
-    const [language, setLanguage] = useState('en');
-    const [seed, setSeed] = useState(42);
-    const [likes, setLikes] = useState(3.7);
-    const [reviews, setReviews] = useState(4.7);
+    const [language, setLanguage] = useState("en"); // Idioma
+    const [seed, setSeed] = useState(42); // Semilla
+    const [likes, setLikes] = useState(3.7); // Likes promedio
+    const [reviews, setReviews] = useState(4.7); // Reviews promedio
 
     const handleSeedChange = () => setSeed(Math.floor(Math.random() * 1000000));
 
