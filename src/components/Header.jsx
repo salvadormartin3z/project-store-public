@@ -5,7 +5,7 @@ const Header = ({ language, setLanguage, seed, setSeed, handleSeedChange, likes,
     return (
         <div className="mb-6">
             <h1 className="text-2xl font-bold mb-4">Book Store Generator</h1>
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="flex gap-4 justify-center">
                 <div>
                     <label className="block font-medium text-gray-700">Language:</label>
                     <select
@@ -38,7 +38,7 @@ const Header = ({ language, setLanguage, seed, setSeed, handleSeedChange, likes,
                 <div>
                     <label className="block font-medium text-gray-700">Likes:</label>
                     <input
-                        type="range"
+                        type="number"
                         min="0"
                         max="10"
                         step="0.1"
