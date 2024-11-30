@@ -6,7 +6,7 @@ export const generateBooks = (seed, language, likes, reviews, count) => {
 
     const books = [];
     for (let i = 0; i < count; i++) {
-        const isbn = faker.string.uuid(); // Cambiado de faker.datatype.uuid a faker.string.uuid
+        const isbn = faker.string.uuid();
         const title = faker.lorem.words(3);
         const author = `${faker.person.firstName()} ${faker.person.lastName()}`;
         const publisher = faker.company.name();
